@@ -1,2 +1,2 @@
 # app-modernization-ejb
-Project to test communication with old WAS project convert to Liberty and deploy on Container
+Project to test communication with old Websphere(WAS) project convert to Liberty (WLP) and deploy on Container soon
