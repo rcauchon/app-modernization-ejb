@@ -1,2 +1,2 @@
-# app-modernization-ejb
-Project to test communication with old WAS project convert to Liberty and deploy on Container
+# legacy-was
+Directory which contains all the legacy java code to run on Websphere Application Server v8.5.5 on java 1.6
