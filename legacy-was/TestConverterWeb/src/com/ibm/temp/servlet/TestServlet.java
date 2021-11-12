@@ -31,7 +31,6 @@ public class TestServlet extends HttpServlet {
      */
     public TestServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -46,11 +45,14 @@ public class TestServlet extends HttpServlet {
 		
 		String errorMsg = "";
 		
+		String type = request.getParameter("type");
 		String degree = request.getParameter("degree");
+		
 		if ( degree.equals("") ) {
 			errorMsg = "Temperature degree can not be empty";
 			LOGGER.info("Temperature degree can not be empty");
 		}
+		
         if ( !degree.equals("")){
         	try {
 				Double.parseDouble(degree);
