@@ -1,2 +1,2 @@
-# app-modernization-ejb
-Project to test communication with old WAS project convert to Liberty and deploy on Container
+# modernize-liberty
+Code repository with OLD legacy code running on Websphere application server v8.5.5
