@@ -1,0 +1,4 @@
+/build/
+/target/
+*.log
+/.apt_generated/
