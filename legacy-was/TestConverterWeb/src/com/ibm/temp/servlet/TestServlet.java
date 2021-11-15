@@ -64,6 +64,7 @@ public class TestServlet extends HttpServlet {
 				LOGGER.info("Format temperature is invalid");
 			}
         }
+        
 		
 		if (!errorMsg.equals("")) {
 			session.setAttribute("ERROR_MSG", errorMsg);
@@ -71,10 +72,24 @@ public class TestServlet extends HttpServlet {
 	        return;
 	    }
 		
-		// Call the EJB
-		double result = local.celsiusToFar(Double.parseDouble(degree));
+		double result = -999;
+		if (type.equals("") ) {
+			result = local.celsiusToFar(Double.parseDouble(degree));
+		} else if (type.equalsIgnoreCase("CtoF")) {
+			result = local.celsiusToFar(Double.parseDouble(degree));
+		} else if (type.equalsIgnoreCase("CtoK")) {
+			result = local.celsiusToKelvin(Double.parseDouble(degree));
+		}else if (type.equalsIgnoreCase("FtoC")) {
+			result = local.farenheitToCel(Double.parseDouble(degree));
+		}else if (type.equalsIgnoreCase("FtoK")) {
+			result = local.farenheitToKelvin(Double.parseDouble(degree));
+		}else if (type.equalsIgnoreCase("KtoC")) {
+			result = local.kelvinToCel(Double.parseDouble(degree));
+		}else if (type.equalsIgnoreCase("KtoF")) {
+			result = local.kelvinToFar(Double.parseDouble(degree));
+		}
 		
-		if (result > -1) {	
+		if (result != -999) {	
 			session.setAttribute("SUCCESS_MSG", "Process post Temperature: " + degree + " return value: " + result);
 		} else {
 			session.setAttribute("ERROR_MSG", "Error with Temperature: " + degree + " result: " + result);

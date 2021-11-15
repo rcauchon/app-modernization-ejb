@@ -76,9 +76,13 @@
 	<div class="col-md-8">
 	<form class="form-horizontal" role="form" action="TestServlet" method="post" >
 	  <div class="form-group">
-	    <label for="depositID" class="control-label col-xs-2">Temperature:</label>
+	    <label for="degree" class="control-label col-xs-2">Temperature:</label>
 	     <div class="col-xs-4">
-	    <input type="text" class="form-control" name="depositID">
+	    <input type="text" class="form-control" name="degree">
+	    </div>
+	    <label for="type" class="control-label col-xs-2">Type:</label>
+	     <div class="col-xs-4">
+	    <input type="text" class="form-control" name="type">
 	    </div>
 	  </div>
 	  <button type="submit" class="btn btn-success">Submit</button>

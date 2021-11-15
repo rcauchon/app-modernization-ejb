@@ -22,41 +22,41 @@ public class ConverterBean implements ConverterRemote, ConverterLocal {
 	@Override
 	public double celsiusToFar(double celsius) {
 		double result = celsius * 9/5 + 32;
-		System.out.println("From celsius: " + celsius + " to Farenheit: "+ result);
+		System.out.println("From Celsius: " + celsius + " to Farenheit: "+ result);
 		return result;
 	}
 
 	@Override
 	public double farenheitToCel(double farenheit) {
 		double result = farenheit * 1.8 + 32;
-		System.out.println("From farenheit: " + farenheit + " to celsius: "+ result);
+		System.out.println("From Farenheit: " + farenheit + " to celsius: "+ result);
 		return result;
 	}
 	@Override
 	public double celsiusToKelvin(double celsius) {
 		double result = celsius + 273.15;
-		System.out.println("From celsius: " + celsius + " to Kelvin: "+ result);
+		System.out.println("From Celsius: " + celsius + " to Kelvin: "+ result);
 		return result;
 	}
 	
 	@Override
 	public double farenheitToKelvin(double farenheit) {
 		double result = (farenheit -32) / 1.8 + 273.15;
-		System.out.println("From farenheit: " + farenheit + " to Kelvin: "+ result);
+		System.out.println("From Farenheit: " + farenheit + " to Kelvin: "+ result);
 		return result;
 	}
 	
 	@Override
 	public double kelvinToFar(double kelvin) {
 		double result = kelvin * 1.8 - 549.67;
-		System.out.println("From kelvin: " + kelvin + " to Farenheit: "+ result);
+		System.out.println("From Kelvin: " + kelvin + " to Farenheit: "+ result);
 		return result;
 	}
 	
 	@Override
 	public double kelvinToCel(double kelvin) {
 		double result = kelvin - 273.15;
-		System.out.println("From kelvin: " + kelvin + " to Celsius: "+ result);
+		System.out.println("From Kelvin: " + kelvin + " to Celsius: "+ result);
 		return result;
 	}
 

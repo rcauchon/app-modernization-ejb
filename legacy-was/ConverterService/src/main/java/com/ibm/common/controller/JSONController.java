@@ -27,7 +27,7 @@ public class JSONController {
 		try {
 			Properties props = new Properties();
 			props.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.ibm.websphere.naming.WsnInitialContextFactory");
-			props.setProperty(Context.PROVIDER_URL, "corbaloc:iiop:localhost:2809");
+			props.setProperty(Context.PROVIDER_URL, "corbaloc:iiop:DESKTOP-JR1BRQA:2809");
 			
 			ctx = new InitialContext(props);
 			
@@ -37,6 +37,7 @@ public class JSONController {
 			return myRemoteEJB;
 			
 		} catch (NamingException ex) {
+			System.out.println("Error with Remote EJB: " + ex.getMessage());
 			temp.setMessage("Error: " + ex.getMessage());
 		}
 		return null;
@@ -55,14 +56,30 @@ public class JSONController {
 				
 			temp.setMessage("Success");
 			temp.setDegree(deg);
-		} else {
-			temp.setMessage("Success");
-		}
+		} 
 		return temp;
 	}
 	
+	@RequestMapping(value="/CtoK/{degree}", method = RequestMethod.GET)
+	public @ResponseBody Temperature getTempCtoK(@PathVariable double degree) {
+
+		Temperature temp = new Temperature(ConvertType.CtoK);
+		
+		ConverterRemote remote = lookupEJB(temp);
+		
+		if (remote != null) {
+		
+			double deg = remote.celsiusToKelvin(degree);
+				
+			temp.setMessage("Success");
+			temp.setDegree(deg);
+		} 
+		return temp;
+
+	}
+	
 	@RequestMapping(value="/FtoC/{degree}", method = RequestMethod.GET)
-	public @ResponseBody Temperature getTempInJSON(@PathVariable double degree) {
+	public @ResponseBody Temperature getTempFtoC(@PathVariable double degree) {
 
 		Temperature temp = new Temperature(ConvertType.FtoC);
 		
@@ -74,9 +91,61 @@ public class JSONController {
 				
 			temp.setMessage("Success");
 			temp.setDegree(deg);
-		} else {
+		} 
+		return temp;
+
+	}
+	
+	@RequestMapping(value="/FtoK/{degree}", method = RequestMethod.GET)
+	public @ResponseBody Temperature getTempFtoK(@PathVariable double degree) {
+
+		Temperature temp = new Temperature(ConvertType.FtoK);
+		
+		ConverterRemote remote = lookupEJB(temp);
+		
+		if (remote != null) {
+		
+			double deg = remote.farenheitToKelvin(degree);
+				
 			temp.setMessage("Success");
+			temp.setDegree(deg);
 		}
+		return temp;
+
+	}
+	
+	@RequestMapping(value="/KtoC/{degree}", method = RequestMethod.GET)
+	public @ResponseBody Temperature getTempKtoC(@PathVariable double degree) {
+
+		Temperature temp = new Temperature(ConvertType.KtoC);
+		
+		ConverterRemote remote = lookupEJB(temp);
+		
+		if (remote != null) {
+		
+			double deg = remote.kelvinToCel(degree);
+				
+			temp.setMessage("Success");
+			temp.setDegree(deg);
+		} 
+		return temp;
+
+	}
+	
+	@RequestMapping(value="/KtoF/{degree}", method = RequestMethod.GET)
+	public @ResponseBody Temperature getTempInJSON(@PathVariable double degree) {
+
+		Temperature temp = new Temperature(ConvertType.KtoF);
+		
+		ConverterRemote remote = lookupEJB(temp);
+		
+		if (remote != null) {
+		
+			double deg = remote.farenheitToCel(degree);
+				
+			temp.setMessage("Success");
+			temp.setDegree(deg);
+		} 
 		return temp;
 
 	}
