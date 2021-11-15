@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>TempEAR</groupId>
+  <artifactId>TempEAR</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <description>!!!EAR resources from the root directory need to be moved under src/main/application!!!</description>
+  
+  <dependencies>
+ 	<dependency>
+        <groupId>TempEJB</groupId>
+        <artifactId>TempEJB</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>ejb</type>
+    </dependency>
+    <dependency>
+        <groupId>TempEJBClient</groupId>
+        <artifactId>TempEJBClient</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>TestConverterWeb</groupId>
+        <artifactId>TestConverterWeb</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>war</type>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <version>6</version>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
