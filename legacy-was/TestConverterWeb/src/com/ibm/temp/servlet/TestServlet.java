@@ -24,7 +24,8 @@ public class TestServlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(TestServlet.class.getName());
 	   
 	
-    @EJB ConverterLocal local;
+    @EJB 
+    ConverterLocal local;
     
     /**
      * @see HttpServlet#HttpServlet()
