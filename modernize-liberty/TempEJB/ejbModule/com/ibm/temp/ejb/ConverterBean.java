@@ -28,7 +28,7 @@ public class ConverterBean implements ConverterRemote, ConverterLocal {
 
 	@Override
 	public double farenheitToCel(double farenheit) {
-		double result = farenheit * 1.8 + 32;
+		double result = (farenheit -32 ) * 5/9;
 		System.out.println("From Farenheit: " + farenheit + " to celsius: "+ result);
 		return result;
 	}
