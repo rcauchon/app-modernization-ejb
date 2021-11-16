@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>TempEJB</project>
+		<project>TempEJBClient</project>
 		<project>TestConverterWeb</project>
 	</projects>
 	<buildSpec>

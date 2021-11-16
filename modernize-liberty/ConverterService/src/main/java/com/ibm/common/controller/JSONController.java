@@ -26,7 +26,7 @@ public class JSONController {
 		
 		try {
 			Properties props = new Properties();
-			props.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.ibm.websphere.naming.WsnInitialContextFactory");
+		//	props.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.ibm.websphere.naming.WsnInitialContextFactory");
 			props.setProperty(Context.PROVIDER_URL, "corbaloc:iiop:DESKTOP-JR1BRQA:2809");
 			
 			ctx = new InitialContext(props);
