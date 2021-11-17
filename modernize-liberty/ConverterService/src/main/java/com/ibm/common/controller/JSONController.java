@@ -22,16 +22,17 @@ import com.ibm.temp.ejb.ConverterRemote;
 public class JSONController {
 	
 	private ConverterRemote lookupEJB(Temperature temp) {
-		Context ctx;
+		
 		
 		try {
-			Properties props = new Properties();
+		//	Properties props = new Properties();
 		//	props.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.ibm.websphere.naming.WsnInitialContextFactory");
-			props.setProperty(Context.PROVIDER_URL, "corbaloc:iiop:DESKTOP-JR1BRQA:2809");
+		//	props.setProperty(Context.PROVIDER_URL, "corbaname::DESKTOP-JR1BRQA:22809");
 			
-			ctx = new InitialContext(props);
+		//	ctx = new InitialContext(props);
+			Context ctx = new InitialContext();
 			
-			Object homeObject = ctx.lookup("ejb/ConverterRemote");
+			Object homeObject = ctx.lookup("corbaname::localhost:22809#ejb/global/TempEAR-0.0.1-SNAPSHOT/TempEJB-0.0.1-SNAPSHOT/ConverterBean!com.ibm.temp.ejb.ConverterRemote");
 			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
 
 			return myRemoteEJB;
