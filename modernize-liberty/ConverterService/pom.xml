@@ -71,6 +71,28 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+			
+			<!-- Enable liberty-maven plugin -->
+	      <plugin>
+	          <groupId>io.openliberty.tools</groupId>
+	          <artifactId>liberty-maven-plugin</artifactId>
+	          <version>3.3.4</version>
+	          <!-- Specify configuration, executions for liberty-maven-plugin -->
+	          <configuration>
+	              <installDirectory>/dev/wlp2021</installDirectory>
+	              <serverName>ejbClient</serverName>
+	          </configuration>
+	          <executions>
+	              <execution>
+	                  <id>install-feature</id>
+	                  <phase>prepare-package</phase>
+	                  <goals>
+	                      <goal>install-feature</goal>
+	                  </goals>
+	              </execution>
+	          </executions>
+	      </plugin>
+	      
 		</plugins>
 	</build>
 
