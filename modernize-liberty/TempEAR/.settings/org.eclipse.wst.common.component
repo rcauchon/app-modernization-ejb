@@ -168,9 +168,6 @@
         <dependent-module archiveName="TempEJBClient-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/TempEJBClient/TempEJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="TestConverterWeb-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/TestConverterWeb/TestConverterWeb">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
                                     
     
     
