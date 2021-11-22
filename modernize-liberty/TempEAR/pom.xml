@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>TempEAR</groupId>
+  <groupId>com.ibm.temp</groupId>
   <artifactId>TempEAR</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>ear</packaging>
@@ -8,19 +8,19 @@
   
   <dependencies>
  	<dependency>
-        <groupId>TempEJB</groupId>
+        <groupId>com.ibm.temp</groupId>
         <artifactId>TempEJB</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <type>ejb</type>
     </dependency>
     <dependency>
-        <groupId>TempEJBClient</groupId>
+        <groupId>com.ibm.temp</groupId>
         <artifactId>TempEJBClient</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <type>jar</type>
     </dependency>
     <dependency>
-        <groupId>TestConverterWeb</groupId>
+        <groupId>com.ibm.temp</groupId>
         <artifactId>TestConverterWeb</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <type>war</type>

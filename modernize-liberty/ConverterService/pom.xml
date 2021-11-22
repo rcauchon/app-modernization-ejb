@@ -16,7 +16,7 @@
 
 	<dependencies>
 	    <dependency>
-	        <groupId>TempEJBClient</groupId>
+	        <groupId>com.ibm.temp</groupId>
 	        <artifactId>TempEJBClient</artifactId>
 	        <version>0.0.1-SNAPSHOT</version>
 	        <type>jar</type>
