@@ -1,7 +1,5 @@
 package com.ibm.common.controller;
 
-import java.util.Properties;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -23,16 +21,16 @@ public class JSONController {
 	
 	private ConverterRemote lookupEJB(Temperature temp) {
 		
-		
 		try {
-		//	Properties props = new Properties();
-		//	props.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.ibm.websphere.naming.WsnInitialContextFactory");
-		//	props.setProperty(Context.PROVIDER_URL, "corbaname::DESKTOP-JR1BRQA:22809");
-			
-		//	ctx = new InitialContext(props);
+
 			Context ctx = new InitialContext();
-			                                                               //     TempEAR-0.0.1-SNAPSHOT/com.ibm.temp-TempEJB-0.0.1-SNAPSHOT/ConverterBean!com.ibm.temp.ejb.ConverterRemote
-			Object homeObject = ctx.lookup("corbaname::localhost:22809#ejb/global/TempEAR-0.0.1-SNAPSHOT/com.ibm.temp-TempEJB-0.0.1-SNAPSHOT/ConverterBean!com.ibm.temp.ejb.ConverterRemote");
+			          
+			String hostname = "localhost";
+			String port = "22809";
+            String provider = "corbaname::" + hostname + ":" + port;
+			String ejbGlobalStr = "ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote";
+
+			Object homeObject = ctx.lookup(provider + "#" + ejbGlobalStr);
 			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
 
 			return myRemoteEJB;

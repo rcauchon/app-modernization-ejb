@@ -4,21 +4,27 @@
 	<groupId>com.ibm.common</groupId>
 	<artifactId>ConverterService</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>Converter Service REST</name>
-	<url>http://maven.apache.org</url>
-
+	
 	<properties>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<jackson.version>1.9.10</jackson.version>
 		<jdk.version>1.6</jdk.version>
 	</properties>
 
+    <!--The identifier of the parent POM-->
+    <parent>
+        <groupId>com.ibm.temp</groupId>
+        <artifactId>TempModules</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
 	<dependencies>
 	    <dependency>
 	        <groupId>com.ibm.temp</groupId>
 	        <artifactId>TempEJBClient</artifactId>
-	        <version>0.0.1-SNAPSHOT</version>
+	        <version>0.0.1</version>
 	        <type>jar</type>
 	    </dependency>
 		<!-- Spring 3 dependencies -->
