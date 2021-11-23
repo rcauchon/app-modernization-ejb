@@ -6,6 +6,7 @@ import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +43,7 @@ public class JSONController {
 		return null;
 	}
 
+	@CrossOrigin
 	@RequestMapping(value="/CtoF/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempCtoF(@PathVariable double degree) {
 
@@ -59,6 +61,7 @@ public class JSONController {
 		return temp;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/CtoK/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempCtoK(@PathVariable double degree) {
 
@@ -77,6 +80,7 @@ public class JSONController {
 
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/FtoC/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempFtoC(@PathVariable double degree) {
 
@@ -95,6 +99,7 @@ public class JSONController {
 
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/FtoK/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempFtoK(@PathVariable double degree) {
 
@@ -113,6 +118,7 @@ public class JSONController {
 
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/KtoC/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempKtoC(@PathVariable double degree) {
 
@@ -131,6 +137,7 @@ public class JSONController {
 
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/KtoF/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempInJSON(@PathVariable double degree) {
 
