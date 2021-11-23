@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ibm.temp</groupId>
   <artifactId>TempEAR</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>ear</packaging>
   <description>!!!EAR resources from the root directory need to be moved under src/main/application!!!</description>
   
@@ -10,13 +10,13 @@
  	<dependency>
         <groupId>com.ibm.temp</groupId>
         <artifactId>TempEJB</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
         <type>ejb</type>
     </dependency>
     <dependency>
         <groupId>com.ibm.temp</groupId>
         <artifactId>TempEJBClient</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
         <type>jar</type>
     </dependency>
   </dependencies>

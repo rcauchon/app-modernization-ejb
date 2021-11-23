@@ -2,3 +2,7 @@
 *.log
 /.apt_generated/
 /target/
+.classpath
+.project
+.factorypath
+/.settings/

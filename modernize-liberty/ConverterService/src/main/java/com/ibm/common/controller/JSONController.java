@@ -32,7 +32,7 @@ public class JSONController {
 		//	ctx = new InitialContext(props);
 			Context ctx = new InitialContext();
 			                                                               //     TempEAR-0.0.1-SNAPSHOT/com.ibm.temp-TempEJB-0.0.1-SNAPSHOT/ConverterBean!com.ibm.temp.ejb.ConverterRemote
-			Object homeObject = ctx.lookup("corbaname::localhost:22809#ejb/global/TempEAR-0.0.1-SNAPSHOT/com.ibm.temp-TempEJB-0.0.1-SNAPSHOT/ConverterBean!com.ibm.temp.ejb.ConverterRemote");
+			Object homeObject = ctx.lookup("corbaname::localhost:22809#ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote");
 			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
 
 			return myRemoteEJB;
