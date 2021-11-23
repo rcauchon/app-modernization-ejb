@@ -7,6 +7,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
   <packaging>jar</packaging>
   <name>Temperature EJB Client</name>
 
+    <!--The identifier of the parent POM-->
+    <parent>
+        <groupId>com.ibm.temp</groupId>
+        <artifactId>TempModules</artifactId>
+        <version>0.0.1</version>
+    </parent>
 
   <dependencies>
     	<dependency>

@@ -5,6 +5,13 @@
   <version>0.0.1</version>
   <packaging>ejb</packaging>
   
+    <!--The identifier of the parent POM-->
+    <parent>
+        <groupId>com.ibm.temp</groupId>
+        <artifactId>TempModules</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
   <dependencies>
    <dependency>
         <groupId>com.ibm.temp</groupId>
