@@ -36,4 +36,5 @@
 		</layers> 
      </clientPolicy.csiv2>
 	</orb>
+    <webApplication id="ConverterService" location="ConverterService.war" name="ConverterService"/>
 </server>

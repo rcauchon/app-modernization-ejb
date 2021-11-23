@@ -26,9 +26,10 @@ public class JSONController {
 
 			Context ctx = new InitialContext();
 			          
-			String hostname = "localhost";
+			String hostname = "ejbserver";
 			String port = "22809";
             String provider = "corbaname::" + hostname + ":" + port;
+			                    
 			String ejbGlobalStr = "ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote";
 
 			Object homeObject = ctx.lookup(provider + "#" + ejbGlobalStr);

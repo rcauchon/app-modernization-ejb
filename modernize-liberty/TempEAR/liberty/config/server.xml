@@ -44,4 +44,5 @@
 			</layers>
 		</clientPolicy.csiv2>
 	</orb>
+    <enterpriseApplication id="TempEAR" location="TempEAR-0.0.1.ear" name="TempEAR"/>
 </server>

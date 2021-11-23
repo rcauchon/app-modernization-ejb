@@ -18,7 +18,8 @@ LABEL \
 USER root
 
 COPY --chown=1001:0 liberty/config/server.xml /config/
-COPY --chown=1001:0 target/*.war /config/apps/
+COPY --chown=1001:0 target/*.ear /config/apps/
+COPY --chown=1001:0 target/*.ear /config/dropins/
 USER 1001
 
-EXPOSE 9082 9442 22809
+EXPOSE 9082 9442

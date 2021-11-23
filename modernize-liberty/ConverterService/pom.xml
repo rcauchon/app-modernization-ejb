@@ -70,6 +70,13 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.openliberty.features</groupId>
+			<artifactId>ejbRemote-3.2</artifactId>
+			<version>21.0.0.11</version>
+			<type>esa</type>
+		</dependency>
+
 	</dependencies>
 
 	<build>
