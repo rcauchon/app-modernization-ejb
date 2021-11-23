@@ -54,46 +54,7 @@ export class AppComponent {
     this.tempUnitsOut.forEach((t) => { t.selected = (t.value == this.outputUnit) })
   }
   convert() {
-  
-    // this.http.post('http://localhost:3030/convert', 
-    //   JSON.stringify({
-    //     "inputDegree": this.inputDegree, 
-    //     "inputDegreeUnit": this.inputUnit, 
-    //     "outputDegreeUnit": this.outputUnit
-    //   }), { 
-    //     headers: new HttpHeaders({
-    //       'Content-Type': 'application/json',
-    //       'Access-Control-Allow-Origin': '*'
-    //     })
-    //   }
-
-    // ).subscribe(response => {
-    //   let result: any  = response;
-    //   this.outputDegree = result.resultDegree.toString().includes('.') ? result.resultDegree.toFixed(2): result.resultDegree;
-
-    // });
-
-
-    console.log(environment.apiUrl);
-
-
-    // http://localhost:9080/ConverterService/rest/converter/FtoC/32
     
-// this.http.options()
-   // this.http.get('http://localhost:9080/ConverterService/rest/converter/FtoC/34', 
-  // this.http.get('https://localhost:9443/ConverterService/rest/converter/FtoC/34',
-  //   { observe: "response"}
-  //   //  { 
-  //   //     headers: new HttpHeaders({
-  //   //       'Access-Control-Allow-Origin': 'http://localhost:',
-  //   //       'Content-Type': 'application/json'
-  //   //     })
-  //   //   }
-
-  //   ).pipe(catchError(this.helloWorld)).subscribe((response: HttpResponse<any>) => {
-  //     console.log("Hello World Respopnse");
-  //   });
-
     //this.http.get('https://localhost:9443/ConverterService/rest/converter/' + 
     this.http.get(environment.apiUrl + 
       this.inputUnit + 'to' + this.outputUnit + '/' + this.inputDegree)
@@ -105,22 +66,12 @@ export class AppComponent {
         // console.log(result.type);
         // console.log(result.message);
       }));
+  }
 
-
-    // ).subscribe(response => {
-    //   let result: any  = response;
-    //   //this.outputDegree = result.resultDegree.toString().includes('.') ? result.resultDegree.toFixed(2): result.resultDegree;
-
-    //   console.log(result);
-    //   console.log(result.data);
-    // });
-
-}
-
-handleError() {
-  console.log("Handling Error!")
-  return throwError('Error caught');
-}
+  handleError() {
+    console.log("Handling Error!")
+    return throwError('Error caught');
+  }
 
 
 }
