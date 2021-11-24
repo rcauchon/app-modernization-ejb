@@ -278,4 +278,4 @@ From the above example we see that the converter REST API is working and the res
 ### If you have build and started the frontend application in the directory temp-conv-ui
 You can also tryit out
 
-![app-modernize-ejb](./images/frontend-temp-converter-1.PNG)
+![app-modernize-ejb](../images/frontend-temp-converter-1.PNG)
