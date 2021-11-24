@@ -9,7 +9,7 @@
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
-    <httpEndpoint httpPort="9082" httpsPort="9442" id="defaultHttpEndpoint"/>
+    <httpEndpoint host="*" httpPort="9082" httpsPort="9442" id="defaultHttpEndpoint"/>
                   
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
@@ -22,7 +22,7 @@
     
     <applicationMonitor updateTrigger="mbean"/>
 
-    <iiopEndpoint host="localhost" id="defaultIiopEndpoint" iiopPort="22809">
+    <iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="${ejb_server_iiop_port}">
 		<!-- the following option has to be removed to allow remote ejb calls without ssl 
 			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
 	</iiopEndpoint>

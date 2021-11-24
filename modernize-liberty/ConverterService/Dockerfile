@@ -19,6 +19,9 @@ USER root
 
 COPY --chown=1001:0 src/main/liberty/config/server.xml /config/
 COPY --chown=1001:0 target/*.war /config/apps/
+
 USER 1001
+
+ENV LICENSE accept
 
 EXPOSE 9085 9445

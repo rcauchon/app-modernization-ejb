@@ -22,4 +22,6 @@ COPY --chown=1001:0 target/*.ear /config/apps/
 COPY --chown=1001:0 target/*.ear /config/dropins/
 USER 1001
 
+ENV LICENSE accept
+
 EXPOSE 9082 9442
