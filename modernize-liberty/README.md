@@ -1,2 +1,2 @@
 # modernize-liberty
-Code repository with OLD legacy code running on Websphere application server v8.5.5
+Code repository with NEW code running on Websphere Liberty profile server v21.0.0.9 
