@@ -12,7 +12,7 @@ LABEL \
   vendor="Open Liberty" \
   name="TempEAR" \
   version="$VERSION" \
-  summary="The Temperature EJB Serverfrom App Modernization EJB" \
+  summary="The Temperature EJB Server from App Modernization EJB" \
   description="This image contains the Temperature EJB Server running with the Open Liberty runtime."
 
 USER root
