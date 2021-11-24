@@ -26,9 +26,12 @@ public class JSONController {
 
 			Context ctx = new InitialContext();
 			          
-			String hostname = "ejbserver";
-			String port = "22809";
-            String provider = "corbaname::" + hostname + ":" + port;
+            System.out.println("Server Hostname: "+ System.getenv("server_hostname"));
+			System.out.println("Server iiop port: "+ System.getenv("server_iiop_port"));
+			System.out.println("Server ejb remote: "+ System.getenv("server_ejb_remote_bean"));
+			System.out.println("Server ejb remote: "+ System.getenv("server_ejb_remote"));
+
+            String provider = "corbaname::" + System.getenv("server_hostname") + ":" + System.getenv("server_iiop_port");
 			                    
 			String ejbGlobalStr = "ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote";
 
