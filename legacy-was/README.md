@@ -14,6 +14,23 @@ This is also base on the chapter on EJB [IBM Red book](http://www.redbooks.ibm.c
 
  ![app-modernization-ejb](../images/Eclipse-WS-WAS.PNG)
 
+Here we have the TempEJB project which contains the EJB implementation, we have the TempEJBClient which contains the interface local and remote of the ConverterBean, then we have the TestConverterWeb which call the local EJB. All of the above project are package in the TempEAR project.
+
+We also have the ConverterService which is the REST API calling the Remote EJB from the TempEAR file.
+
+* CtoF - Celsius to Farenheit
+* CtoK - Celsius to Kelvin
+* FtoC - Farenheith to Celsius
+* FtoK - Farenheith to Kelvin
+* KtoC - Kelvin to Celsius
+* KtoF - Kelvin to Farenheith
+
+You can call the REST API with a curl command
+```
+curl http://localhost:9080/Converter/rest/converter/FtoC/0
+```
+Each Services can be call with the name and degree
+
 
 # For the old people in the room. 
 Start up the old WAS on you Windows desktop 
