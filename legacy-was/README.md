@@ -12,6 +12,7 @@ On my machine I create the workspace *eclipse-workspace-temp*
 This is also base on the chapter on EJB [IBM Red book](http://www.redbooks.ibm.com/redbooks/pdfs/sg248076.pdf)
 
 
+ ![app-modernization-ejb](../images/Eclipse-WS-WAS.PNG)
 
 
 # For the old people in the room. 
