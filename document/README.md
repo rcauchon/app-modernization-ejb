@@ -16,3 +16,8 @@ IIOP_ENDPOINT
 Description: Add configuration properties for an IIOP endpoint.
 XML Snippet Location: iiop-ssl-endpoint.xml when SSL is enabled. Otherwise, iiop-endpoint.xml.
 Note: If using this option, env.IIOP_ENDPOINT_HOST environment variable should be set to the server's host. See IIOP endpoint configuration for more details.
+
+Link for on Liberty Application Server
+[IBM WebSphere Application Server Liberty profile for Developers](http://www.redbooks.ibm.com/redbooks/pdfs/sg248076.pdf)
+
+Remote EJB link from IBM [Using enterprise JavaBeans with remote interfaces on Liberty](https://www.ibm.com/docs/en/was-liberty/nd?topic=liberty-using-enterprise-javabeans-remote-interfaces)
