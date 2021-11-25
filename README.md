@@ -14,5 +14,5 @@ Old frontend
  ![app-modernization-ejb](images/Old-Frontend-converter.PNG)
  
  New frontend
- ![app-modernization-ejb](images/Frontend-converter.PNG)
+ ![app-modernization-ejb](images/frontend-temp-converter-1.PNG)
   
