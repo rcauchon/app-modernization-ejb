@@ -9,7 +9,7 @@ Basically we have an old EJB communication architecture running on Websphere (WA
 4. The Temperature project contains drawing
 5. The images directory contains screenshot to show in the github Readme.md file
 
-# Going to the old to new
+# Going from the old to the new
 Old frontend
  ![app-modernization-ejb](images/Old-Frontend-converter.PNG)
  
