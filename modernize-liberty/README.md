@@ -1,6 +1,42 @@
 # modernize-liberty
 Code repository with NEW code running on Websphere Liberty profile server v21.0.0.9 
 
+## First Step
+Convert all legacy eclipse legacy project to maven project 
+
+I also added a pom.xml in the parent directory modernize-liberty
+```
+ <modules>
+    <module>TempEJBClient</module>
+    <module>TempEJB</module>
+    <module>TempEAR</module>
+    <module>ConverterService</module>
+ </modules>
+```
+
+To compile the project you can run `make clean install` from the parent directory
+
+Prerequisite are Maven, JAVA 1.8 jdk and liberty install on you computer in some of the pom.xml there is an hardcoded path for liberty 
+```
+  <installDirectory>/dev/wlp2021</installDirectory>
+```
+in the TempEAR/pom.xml and in the ConverterService/pom.xml
+
+If all the above goes well you can start both application in 2 separate liberty server
+```
+cd TempEAR
+mvn liberty:run
+
+cd ConverterService
+mvn liberty:run
+```
+
+This will start 2 liberty server named *ebjServer* and *ejbclient* 
+
+
+
+
+
 
 ## Running with Docker
 
