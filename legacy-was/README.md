@@ -13,7 +13,7 @@ Started the SERVER by default **AppSrv01**
  ![app-modernization-ejb](../images/WAS-home.PNG)
  
 You see in the window > Applications > Application Types > WebSphere enterprise applications
-we have ConverterService war and TempEAR running
+we have **ConverterService war** and **TempEAR** running
 
  ![app-modernization-ejb](../images/WAS-Application.PNG)
 
