@@ -1,6 +1,19 @@
 # legacy-was
 Directory which contains all the legacy java code to run on Websphere Application Server v8.5.5 on java 1.6
 
+# For this we have old eclipse project in a workspace
+* TempEAR
+* TempEJB
+* TempEJBClient
+* TestConverterWeb
+* ConverterService
+
+On my machine I create the workspace *eclipse-workspace-temp*
+This is also base on the chapter on EJB [IBM Red book](http://www.redbooks.ibm.com/redbooks/pdfs/sg248076.pdf)
+
+
+
+
 # For the old people in the room. 
 Start up the old WAS on you Windows desktop 
 ```
@@ -69,3 +82,4 @@ private ConverterRemote lookupEJB(Temperature temp) {
 		return null;
 ```
 
+ ![app-modernization-ejb](../images/Converter-WAS.PNG)
