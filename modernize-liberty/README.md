@@ -31,14 +31,14 @@ cd ConverterService
 mvn liberty:run
 ```
 
-This will start 2 liberty server named *ebjServer* and *ejbclient* 
+This will start 2 liberty servers named **ebjServer** and **ejbclient** 
 
 
 
 
 
 
-## Running with Docker
+## Second Step running with Docker
 
 To run the ebj server and client under docker
 
