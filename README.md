@@ -11,8 +11,8 @@ Basically we have an old EJB communication architecture running on Websphere (WA
 
 # Going to the old to new
 Old frontend
- ![app-modernization-ejb](../images/Old-Frontend-converter.PNG)
+ ![app-modernization-ejb](images/Old-Frontend-converter.PNG)
  
  New frontend
- ![app-modernization-ejb](../images/Frontend-converter.PNG)
+ ![app-modernization-ejb](images/Frontend-converter.PNG)
   
