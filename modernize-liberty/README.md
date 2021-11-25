@@ -31,8 +31,68 @@ cd ConverterService
 mvn liberty:run
 ```
 
-This will start 2 liberty servers named **ebjServer** and **ejbclient** 
+This will start 2 liberty servers named **ejbServer** and **ejbclient** 
+We added 2 variables on the server.xml file of the ejbServer define in the server.env file
+```
+ejb_server_hostname=localhost
+ejb_server_iiop_port=22809
+```
+used in the server.xml
+```
+<iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="${ejb_server_iiop_port}">
+		<!-- the following option has to be removed to allow remote ejb calls without ssl 
+			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
+</iiopEndpoint>`
 
+```
+
+We added 4 variables on the server.xml file of the ejbClient define in the server.env file
+```
+ejb_server_hostname=localhost
+ejb_server_iiop_port=22809
+ejb_server_remote_path=TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean
+ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
+```
+used in the JSONController.java code from the project ConverterService
+```
+		try {
+
+			Context ctx = new InitialContext();
+			
+			String hostname = System.getenv("ejb_server_hostname");
+            System.out.println("EJB Server Hostname: "+ hostname);
+			String port = System.getenv("ejb_server_iiop_port");
+			System.out.println("EJB Server iiop port: "+ port);
+
+			String ejbRemotePath = System.getenv("ejb_server_remote_path");
+			System.out.println("EJB Server remote path: "+ ejbRemotePath);
+			String ejbRemoteBean = System.getenv("ejb_server_remote_bean");
+			System.out.println("EJB Server remote bean: "+ ejbRemoteBean);
+
+			if (hostname == null || hostname.isEmpty()){
+				hostname = "localhost";
+			}
+			if (port == null || port.isEmpty()){
+				port = "22809";
+			}
+
+            String provider = "corbaname::" + hostname + ":" + port;
+			                
+			// ejb_server_remote_path=TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean
+            // ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
+			String ejbGlobalStr = "ejb/global/" + ejbRemotePath + "!" + ejbRemoteBean;
+
+			Object homeObject = ctx.lookup(provider + "#" + ejbGlobalStr);
+			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
+
+			return myRemoteEJB;
+			
+		} catch (NamingException ex) {
+			System.out.println("Error with Remote EJB: " + ex.getMessage());
+			temp.setMessage("Error: " + ex.getMessage());
+		}
+		return null;
+```
 
 
 
