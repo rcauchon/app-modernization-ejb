@@ -1,6 +1,6 @@
 ﻿# document
 
-# Some documentation REFERENCE
+# Some documentation REFERENCE for this project
 
 IBM Red book on EJB and Websphere Application Server
 [IBM Red book](http://www.redbooks.ibm.com/redbooks/pdfs/sg248076.pdf)
