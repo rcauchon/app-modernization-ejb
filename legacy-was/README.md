@@ -19,4 +19,19 @@ we have **ConverterService war** and **TempEAR** running
 
 For test purpose in the TempEAR I have a small frontend running and calling the ejb local bean ConverterBean
 
+Simple servlet accessing the local EJB with annotation
+```
+@WebServlet( urlPatterns = "/TestServlet", loadOnStartup=1)
+public class TestServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private static final Logger LOGGER = Logger.getLogger(TestServlet.class.getName());
+	   
+	
+    @EJB 
+    ConverterLocal local;
+     ...
+```
+
  ![app-modernization-ejb](../images/Old-Frontend-converter.PNG)
