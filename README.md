@@ -1,6 +1,12 @@
 # app-modernization-ejb
 Project to test communication with old Websphere(WAS) project convert to Liberty (WLP) and deploy on Container soon
 
+## The team
+[David Vanderpol] (mailto:vandepol@ca.ibm.com)
+[Hena Alpona] (mailto:hena.alpona@ibm.com)
+[Juan Pablo Panesso] (mailto:jp.panesso@ibm.com)
+[Remi Cauchon] (mailto:REMI.CAUCHON@ibm.com)
+
 Basically we have an old EJB communication architecture running on Websphere (WAS) and we want to migrate this application running on WAS to Container and OpenShift
 
 1. The legacy-was directory we have the old code running under Websphere (WAS) - Eclipse project only
