@@ -94,9 +94,18 @@ used in the JSONController.java code from the project ConverterService
 		return null;
 ```
 
+Accessing the Converter Rest API is the same as describe below since we are using the same port as the docker container .
+Type this URL in your browser or curl
+```
+http://localhost:9085/ConverterService/rest/converter/CtoF/25
+```
 
+From the above document you should have a running applications ejbServer and ejbClient,
+```
+ctrl-c  on both terminal where you started the 2 servers 
+```
 
-
+Now you are ready to go to step 2 - Doing this again with Docker image and container
 
 ## Second Step running with Docker
 
