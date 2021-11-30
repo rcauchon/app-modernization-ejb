@@ -403,6 +403,11 @@ docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
  oc new-project converter-ejb
  ```
  
+       hostAliases:
+        - ip: 127.0.0.1
+          hostnames:
+            - server-ejb.converter-ebj.svc
+	    
  to be continue ...
  
  
