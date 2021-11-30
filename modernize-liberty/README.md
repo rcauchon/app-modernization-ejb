@@ -384,3 +384,26 @@ From the above example we see that the converter REST API is working and the res
 You can also try it out
 
 ![app-modernize-ejb](../images/frontend-temp-converter-1.PNG)
+
+## Third step 
+Deploy to Red Hat OpenShift
+
+Start by tag your image with a Registry for now, I am using quay.io with my username remi_cauchon_ibm
+```
+docker tag ejb-client quay.io/remi_cauchon_ibm/ejb-server:v1.0
+docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
+docker tag ejb-server quay.io/remi_cauchon_ibm/ejb-client:v1.0
+docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
+ ```
+ login to your account on quay.io make your images repositories public
+ 
+ 
+ Go to your ROKS console and add the project or do it with the command line
+ ```
+ oc new-project converter-ejb
+ ```
+ 
+ to be continue ...
+ 
+ 
+ 
