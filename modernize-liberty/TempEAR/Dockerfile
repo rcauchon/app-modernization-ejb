@@ -19,7 +19,6 @@ USER root
 
 COPY --chown=1001:0 liberty/config/server.xml /config/
 COPY --chown=1001:0 target/*.ear /config/apps/
-COPY --chown=1001:0 target/*.ear /config/dropins/
 USER 1001
 
 ENV LICENSE accept
