@@ -392,22 +392,27 @@ Start by tag your image with a Registry for now, I am using quay.io with my user
 ```
 docker tag ejb-client quay.io/remi_cauchon_ibm/ejb-client:v1.0
 docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
+
 docker tag ejb-server quay.io/remi_cauchon_ibm/ejb-server:v1.0
 docker push quay.io/remi_cauchon_ibm/ejb-server:v1.0
  ```
- login to your account on quay.io make your images repositories public
+Loogin to your account on quay.io make your images repositories public
  
- 
- Go to your ROKS console and add the project or do it with the command line
+Go to your ROKS console and add the project or do it with the command line
  ```
- oc new-project converter-ejb
+ oc new-project --display-name="Test Converter EJB remote calling ejb server" converter-ejb
  ```
 
+Deploy the ejb-server image with OCP console
+
+
+
+
 ```
-       hostAliases:
-        - ip: 127.0.0.1
-          hostnames:
-            - server-ejb.converter-ejb.svc
+    hostAliases:
+     - ip: 0.0.0.0
+       hostnames:
+       - server-ejb.converter-ejb.svc
 ```	    
  to be continue ...
  
