@@ -49,6 +49,7 @@ public class JSONController {
             // ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
 			String ejbGlobalStr = "ejb/global/" + ejbRemotePath + "!" + ejbRemoteBean;
 
+			System.out.println("homeObject: " + provider + "#" + ejbGlobalStr);
 			Object homeObject = ctx.lookup(provider + "#" + ejbGlobalStr);
 			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
 
