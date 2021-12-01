@@ -55,7 +55,7 @@ export class AppComponent {
   }
   convert() {
     
-    //this.http.get('https://localhost:9443/ConverterService/rest/converter/' + 
+    //this.http.get('https://localhost:9443/ConverterService/rest/converter/' 
     this.http.get(environment.apiUrl + 
       this.inputUnit + 'to' + this.outputUnit + '/' + this.inputDegree)
       .pipe(catchError(this.handleError))
