@@ -390,10 +390,10 @@ Deploy to Red Hat OpenShift
 
 Start by tag your image with a Registry for now, I am using quay.io with my username remi_cauchon_ibm
 ```
-docker tag ejb-client quay.io/remi_cauchon_ibm/ejb-server:v1.0
+docker tag ejb-client quay.io/remi_cauchon_ibm/ejb-client:v1.0
 docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
-docker tag ejb-server quay.io/remi_cauchon_ibm/ejb-client:v1.0
-docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
+docker tag ejb-server quay.io/remi_cauchon_ibm/ejb-server:v1.0
+docker push quay.io/remi_cauchon_ibm/ejb-server:v1.0
  ```
  login to your account on quay.io make your images repositories public
  
@@ -407,7 +407,7 @@ docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
        hostAliases:
         - ip: 127.0.0.1
           hostnames:
-            - server-ejb.converter-ebj.svc
+            - server-ejb.converter-ejb.svc
 ```	    
  to be continue ...
  
