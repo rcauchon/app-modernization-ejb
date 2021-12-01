@@ -1,8 +1,113 @@
 # modernize-liberty
 Code repository with NEW code running on Websphere Liberty profile server v21.0.0.9 
 
+## First Step
+Convert all legacy eclipse legacy project to maven project 
 
-## Running with Docker
+I also added a pom.xml in the parent directory modernize-liberty
+```
+ <modules>
+    <module>TempEJBClient</module>
+    <module>TempEJB</module>
+    <module>TempEAR</module>
+    <module>ConverterService</module>
+ </modules>
+```
+
+To compile the project you can run `make clean install` from the parent directory
+
+Prerequisite are Maven, JAVA 1.8 jdk and liberty install on you computer in some of the pom.xml there is an hardcoded path for liberty 
+```
+  <installDirectory>/dev/wlp2021</installDirectory>
+```
+in the TempEAR/pom.xml and in the ConverterService/pom.xml
+
+If all the above goes well you can start both application in 2 separate liberty server
+```
+cd TempEAR
+mvn liberty:run
+
+cd ConverterService
+mvn liberty:run
+```
+
+This will start 2 liberty servers named **ejbServer** and **ejbclient** 
+We added 2 variables on the server.xml file of the ejbServer define in the server.env file
+```
+ejb_server_hostname=localhost
+ejb_server_iiop_port=22809
+```
+used in the server.xml
+```
+<iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="${ejb_server_iiop_port}">
+		<!-- the following option has to be removed to allow remote ejb calls without ssl 
+			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
+</iiopEndpoint>`
+
+```
+
+We added 4 variables on the server.xml file of the ejbClient define in the server.env file
+```
+ejb_server_hostname=localhost
+ejb_server_iiop_port=22809
+ejb_server_remote_path=TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean
+ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
+```
+used in the JSONController.java code from the project ConverterService
+```
+		try {
+
+			Context ctx = new InitialContext();
+			
+			String hostname = System.getenv("ejb_server_hostname");
+            System.out.println("EJB Server Hostname: "+ hostname);
+			String port = System.getenv("ejb_server_iiop_port");
+			System.out.println("EJB Server iiop port: "+ port);
+
+			String ejbRemotePath = System.getenv("ejb_server_remote_path");
+			System.out.println("EJB Server remote path: "+ ejbRemotePath);
+			String ejbRemoteBean = System.getenv("ejb_server_remote_bean");
+			System.out.println("EJB Server remote bean: "+ ejbRemoteBean);
+
+			if (hostname == null || hostname.isEmpty()){
+				hostname = "localhost";
+			}
+			if (port == null || port.isEmpty()){
+				port = "22809";
+			}
+
+            String provider = "corbaname::" + hostname + ":" + port;
+			                
+			// ejb_server_remote_path=TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean
+            // ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
+			String ejbGlobalStr = "ejb/global/" + ejbRemotePath + "!" + ejbRemoteBean;
+
+			Object homeObject = ctx.lookup(provider + "#" + ejbGlobalStr);
+			ConverterRemote myRemoteEJB = (ConverterRemote) PortableRemoteObject.narrow(homeObject, ConverterRemote.class);
+
+			return myRemoteEJB;
+			
+		} catch (NamingException ex) {
+			System.out.println("Error with Remote EJB: " + ex.getMessage());
+			temp.setMessage("Error: " + ex.getMessage());
+		}
+		return null;
+```
+
+Accessing the Converter Rest API is the same as describe below since we are using the same port as the docker container .
+Type this URL in your browser or curl
+```
+http://localhost:9085/ConverterService/rest/converter/CtoF/25
+```
+
+From the above document you should have a running applications ejbServer and ejbClient,
+```
+ctrl-c  on both terminal where you started the 2 servers 
+```
+
+Now you are ready to go to step 2 - Doing this again with Docker image and container
+
+## Second Step running with Docker
 
 To run the ebj server and client under docker
 
@@ -276,6 +381,35 @@ From the above example we see that the converter REST API is working and the res
 
 
 ### If you have build and started the frontend application in the directory temp-conv-ui
-You can also tryit out
+You can also try it out
 
 ![app-modernize-ejb](../images/frontend-temp-converter-1.PNG)
+
+## Third step 
+Deploy to Red Hat OpenShift
+
+Start by tag your image with a Registry for now, I am using quay.io with my username remi_cauchon_ibm
+```
+docker tag ejb-client quay.io/remi_cauchon_ibm/ejb-client:v1.0
+docker push quay.io/remi_cauchon_ibm/ejb-client:v1.0
+docker tag ejb-server quay.io/remi_cauchon_ibm/ejb-server:v1.0
+docker push quay.io/remi_cauchon_ibm/ejb-server:v1.0
+ ```
+ login to your account on quay.io make your images repositories public
+ 
+ 
+ Go to your ROKS console and add the project or do it with the command line
+ ```
+ oc new-project converter-ejb
+ ```
+
+```
+       hostAliases:
+        - ip: 127.0.0.1
+          hostnames:
+            - server-ejb.converter-ejb.svc
+```	    
+ to be continue ...
+ 
+ 
+ 
