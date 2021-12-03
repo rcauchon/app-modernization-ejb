@@ -29,3 +29,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## The Web application on port 4200
  ![app-modernization-ejb](../../images/frontend-temp-converter-1.PNG)
+
+
+## Step TWO 
+Build the Docker images
+```
+docker build -t temp-conv-ui .
+```
+Run the docker images locally 
+```
+ docker run -d --name temp-ui -p 4200:80 temp-conv-ui
+```
