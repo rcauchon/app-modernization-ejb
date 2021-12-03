@@ -40,3 +40,12 @@ Run the docker images locally
 ```
  docker run -d --name temp-ui -p 4200:80 temp-conv-ui
 ```
+Tag the image
+```
+ docker tag temp-conv-ui quay.io/remi_cauchon_ibm/temp-ui:v1.0
+```
+Push the image on Quay.io
+```
+ docker push quay.io/remi_cauchon_ibm/temp-ui:v1.0
+ ```
+```
