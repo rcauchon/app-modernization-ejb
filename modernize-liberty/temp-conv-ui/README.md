@@ -55,5 +55,5 @@ Deploy the image temp-ui on the OpenShift cluster
 ```
 Expose the route on port 4200 just like on windows
 ```
-oc expose service temp-ui --port=4200 --name temp-ui-route
+oc expose service temp-ui --port=8080 --name temp-ui-route
 ```
