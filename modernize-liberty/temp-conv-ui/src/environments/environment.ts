@@ -3,7 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-//  apiUrl: 'http://'+ '${process.env.CLIENT_EJB_SERVICE_HOST}' + ':' + '${CLIENT_EJB_SERVICE_PORT}' + '/ConverterService/rest/converter/'
   apiUrl: 'http://localhost:9085/ConverterService/rest/converter/'
 };
 

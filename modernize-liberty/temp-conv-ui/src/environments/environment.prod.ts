@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://localhost:9445/ConverterService/rest/converter/'
+  apiUrl: 'http://client-ejb.converter-ejb.svc:9085/ConverterService/rest/converter/'
 };
