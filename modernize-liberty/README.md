@@ -415,7 +415,15 @@ Add the following in the YAML file of the Deployments server-ejb file
      - ip: 0.0.0.0
        hostnames:
        - server-ejb.converter-ejb.svc
-```	    
+```
+Expose the port 2809 in the server-ejb
+```
+   - name: 2809-tcp
+      protocol: TCP
+      port: 2809
+      targetPort: 2809
+```
+
 Deploy the ejb-client image with OCP console
 
 or with oc command 
