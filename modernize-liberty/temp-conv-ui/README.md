@@ -47,5 +47,13 @@ Tag the image
 Push the image on Quay.io
 ```
  docker push quay.io/remi_cauchon_ibm/temp-ui:v1.0
- ```
+```
+
+Deploy the image temp-ui on the OpenShift cluster
+```
+ oc new-app quay.io/remi_cauchon_ibm/temp-ui:v1.0 --name temp-ui
+```
+Expose the route on port 4200 just like on windows
+```
+oc expose service temp-ui --port=4200 --name temp-ui-route
 ```
