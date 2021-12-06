@@ -405,16 +405,26 @@ Go to your ROKS console and add the project or do it with the command line
 
 Deploy the ejb-server image with OCP console
 
-
-
-
+or with oc command
+```
+ oc new-app quay.io/remi_cauchon_ibm/ejb-server:v1.0 -e ejb_server_iiop_port=2809 -e ejb_server_hostname=server-ejb.converter-ejb.svc --name server-ejb
+```
+Add the following in the YAML file of the Deployments server-ejb file
 ```
     hostAliases:
      - ip: 0.0.0.0
        hostnames:
        - server-ejb.converter-ejb.svc
 ```	    
- to be continue ...
+Deploy the ejb-client image with OCP console
+
+or with oc command 
+```
+oc new-app quay.io/remi_cauchon_ibm/ejb-client:v1.0 -e ejb_server_iiop_port=2809 -e ejb_server_hostname=server-ejb.converter-ejb.svc -e ejb_server_remote_path="TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean" -e ejb_server_remote_bean="com.ibm.temp.ejb.ConverterRemote" --name client-ejb
+```
  
- 
- 
+Expose the route for the client-ejb 
+```
+oc expose service client-ejb --path="/ConverterService/rest/converter/" --port=9085 --name client-ejb-route
+
+```
