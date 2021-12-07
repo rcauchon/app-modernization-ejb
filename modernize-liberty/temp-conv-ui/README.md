@@ -69,6 +69,6 @@ Command to clean up the OpenShift projet from temp-ui
  oc delete imagestream.image.openshift.io/temp-ui
  oc delete deployment.apps/temp-ui
  oc delete service/temp-ui
- oc delete route/temp-ui
+ oc delete route/temp-ui-route
  ```
 
