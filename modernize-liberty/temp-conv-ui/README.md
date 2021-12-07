@@ -64,7 +64,8 @@ Expose the route on port 4200 just like on windows
 oc expose service temp-ui --port=8080 --name temp-ui-route
 ```
 
-Command to clean up the OpenShift proje
+Command to clean up the OpenShift projet from temp-ui
+```
  oc delete imagestream.image.openshift.io/temp-ui
  oc delete deployment.apps/temp-ui
  oc delete service/temp-ui
