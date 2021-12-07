@@ -33,6 +33,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Step TWO 
 Build the Docker images
+
+Put the URL of the client-ejb service in the file environment.prod.ts
+```
+ apiUrl: 'http://client-ejb-route-converter-ejb.itzroks-6630025ezu-fcstbe-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud/ConverterService/rest/converter/'
+```
+
 ```
 docker build -t temp-conv-ui .
 ```
