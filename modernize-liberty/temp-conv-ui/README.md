@@ -39,7 +39,7 @@ docker build -t temp-conv-ui .
 ```
 Run the docker images locally 
 ```
- docker run -d --name temp-ui -p 4200:80 temp-conv-ui
+ docker run -d --name temp-ui -p 4200:8080 temp-conv-ui
 ```
 Tag the image
 ```
