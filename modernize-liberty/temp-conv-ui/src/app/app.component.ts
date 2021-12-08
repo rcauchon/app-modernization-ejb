@@ -3,6 +3,7 @@ import { Component, isDevMode } from '@angular/core';
 import { throwError } from 'rxjs';
 import {  catchError } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { AppConfigService } from './providers/app-config.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,9 @@ export class AppComponent {
   outputDegree = 32;
   outputUnit = "F";
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient, private config: AppConfigService) {
+    console.log(this.config.getApiUrl());
+    console.log(this.config.getPogo());
   }
 
   ngOnInit() {
@@ -56,7 +59,7 @@ export class AppComponent {
   convert() {
     
     //this.http.get('https://localhost:9443/ConverterService/rest/converter/' 
-    this.http.get(environment.apiUrl + 
+    this.http.get(this.config.getApiUrl() + 
       this.inputUnit + 'to' + this.outputUnit + '/' + this.inputDegree)
       .pipe(catchError(this.handleError))
       .subscribe((response => {

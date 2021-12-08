@@ -1,0 +1,4 @@
+{
+    "API_URL" : "http://localhost:9085/ConverterService/rest/converter/",
+    "POGO" : "Another variable POGO"
+}
