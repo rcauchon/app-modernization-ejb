@@ -1,10 +1,14 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppConfigService } from './providers/app-config.service';
 
 import { AppComponent } from './app.component';
 
+export function initConfig(appConfig: AppConfigService) {
+  return () => appConfig.loadConfig();
+}
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +19,12 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initConfig,
+    deps: [AppConfigService],
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
