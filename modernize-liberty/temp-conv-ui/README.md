@@ -57,12 +57,31 @@ Push the image on Quay.io
 
 Deploy the image temp-ui on the OpenShift cluster
 ```
- oc new-app quay.io/remi_cauchon_ibm/temp-ui:v1.0 --name temp-ui
+ oc new-app quay.io/remi_cauchon_ibm/temp-ui:v1.0 --as-deployment-configmap=true --name temp-ui
 ```
 Expose the route on port 4200 just like on windows
 ```
 oc expose service temp-ui --port=8080 --name temp-ui-route
 ```
+
+Create the configmap, config-temp from the local file assets/config/config.json
+```
+ oc create cm config-temp --from-file ./src/assets/config/config.json
+```
+Set the volume to dc/temp-ui to mount /usr/share/nginx/html/assets/config to the config-temp configmap
+```
+oc set volume dc/temp-ui --add -t configmap  --mount-path=/usr/share/nginx/html/assets/config --name myvol --configmap-name config-temp
+```
+
+Edit the configmap in the Openshift console copy/paste the fulle URl of the client-ejb route
+```
+{
+    "API_URL" : "http://client-ejb-route-converter-ejb.itzroks-6630025ezu-fcstbe-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud/ConverterService/rest/converter/",
+    "POGO" : "Another variable POGO"
+}
+```
+
+### BRAVO you are done
 
 Command to clean up the OpenShift projet from temp-ui
 ```
