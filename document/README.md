@@ -24,3 +24,8 @@ Remote EJB link from IBM [Using enterprise JavaBeans with remote interfaces on L
 
 Latest find from @David VandePol
 [Restriction on Platform as a service environment](https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-paas-environment-considerations-setting-up)
+
+# Some good reading on Angular
+https://dzone.com/articles/multi-environment-angular-with-dynamic-backend-uri
+
+https://developers.redhat.com/blog/2019/11/27/handling-angular-environments-in-continuous-delivery-with-red-hat-openshift#
