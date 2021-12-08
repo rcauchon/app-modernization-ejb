@@ -29,3 +29,5 @@ Latest find from @David VandePol
 https://dzone.com/articles/multi-environment-angular-with-dynamic-backend-uri
 
 https://developers.redhat.com/blog/2019/11/27/handling-angular-environments-in-continuous-delivery-with-red-hat-openshift#
+
+https://stackblitz.com/edit/angular-dlrsz6?file=src%2Fapp%2Fapp.module.ts
