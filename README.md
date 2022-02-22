@@ -20,10 +20,14 @@ Basically we have an old EJB communication architecture running on Websphere (WA
 
 # Going from the old to the new
 Old frontend
+
 http://localhost:9080/TestConverterWeb/index.jsp
 
- ![app-modernization-ejb](images/Old-Frontend-converter.PNG)
+![app-modernization-ejb](images/Old-Frontend-converter.PNG)
  
- New frontend
- ![app-modernization-ejb](images/frontend-temp-converter-1.PNG)
+New frontend
+
+http://localhost:4200
+
+![app-modernization-ejb](images/frontend-temp-converter-1.PNG)
   
