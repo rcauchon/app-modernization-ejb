@@ -32,7 +32,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Step TWO 
-Build the Docker images
+Build the Docker images and deploy the app to Red Hat OpenShift
 
 ```
 docker build -t temp-conv-ui .
