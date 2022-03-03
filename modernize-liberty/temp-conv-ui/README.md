@@ -52,7 +52,7 @@ Push the image on Quay.io
 
 Deploy the image temp-ui on the OpenShift cluster
 ```
- oc new-app quay.io/remi_cauchon_ibm/temp-ui:v1.0 --as-deployment-configmap=true --name temp-ui
+ oc new-app quay.io/remi_cauchon_ibm/temp-ui:v1.0 --name temp-ui
 ```
 Expose the route on port 4200 just like on windows
 ```
@@ -63,12 +63,14 @@ Create the configmap, config-temp from the local file assets/config/config.json
 ```
  oc create cm config-temp --from-file ./src/assets/config/config.json
 ```
-Set the volume to dc/temp-ui to mount /usr/share/nginx/html/assets/config to the config-temp configmap
+Set the volume to deployment/temp-ui to mount /usr/share/nginx/html/assets/config to the config-temp configmap
 ```
-oc set volume dc/temp-ui --add -t configmap  --mount-path=/usr/share/nginx/html/assets/config --name myvol --configmap-name config-temp
+oc set volume deployment/temp-ui --add -t configmap  --mount-path=/usr/share/nginx/html/assets/config --name myvol --configmap-name config-temp
 ```
 
 Edit the configmap in the Openshift console copy/paste the fulle URl of the client-ejb route
+>Note: copy paste the URL from the route on **client-ejb-route** for example:
+  http://client-ejb-route-converter-ejb.itzroks-6630025ezu-jngiqb-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud/ConverterService/rest/converter/
 ```
 {
     "API_URL" : "http://client-ejb-route-converter-ejb.itzroks-6630025ezu-fcstbe-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud/ConverterService/rest/converter/",
