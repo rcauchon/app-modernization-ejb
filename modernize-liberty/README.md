@@ -416,6 +416,13 @@ Add the following in the YAML file of the Workloads-->Deployments server-ejb fil
        hostnames:
        - server-ejb.converter-ejb.svc
 ```
+add the containerPort also in the yaml file of  Workloads-->Deployments server-ejb within the node **ports:**
+```
+  - containerPort: 2809
+    protocol: TCP
+```
+
+
 Expose the port 2809 in the **server-ejb** in the Networking-->Services
 ```
    - name: 2809-tcp
