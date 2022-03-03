@@ -416,7 +416,7 @@ Add the following in the YAML file of the Deployments server-ejb file below the 
        hostnames:
        - server-ejb.converter-ejb.svc
 ```
-Expose the port 2809 in the server-ejb
+Expose the port 2809 in the **server-ejb** in the Networking->Services
 ```
    - name: 2809-tcp
       protocol: TCP
