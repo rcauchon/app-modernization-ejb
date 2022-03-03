@@ -409,14 +409,14 @@ or with oc command
 ```
  oc new-app quay.io/remi_cauchon_ibm/ejb-server:v1.0 -e ejb_server_iiop_port=2809 -e ejb_server_hostname=server-ejb.converter-ejb.svc --name server-ejb
 ```
-Add the following in the YAML file of the Deployments server-ejb file below the **spec:** node in the yaml file
+Add the following in the YAML file of the Workloads-->Deployments server-ejb file below the **spec:** node in the yaml file
 ```
     hostAliases:
      - ip: 0.0.0.0
        hostnames:
        - server-ejb.converter-ejb.svc
 ```
-Expose the port 2809 in the **server-ejb** in the Networking->Services
+Expose the port 2809 in the **server-ejb** in the Networking-->Services
 ```
    - name: 2809-tcp
       protocol: TCP
