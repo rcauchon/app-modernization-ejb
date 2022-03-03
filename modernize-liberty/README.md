@@ -409,7 +409,7 @@ or with oc command
 ```
  oc new-app quay.io/remi_cauchon_ibm/ejb-server:v1.0 -e ejb_server_iiop_port=2809 -e ejb_server_hostname=server-ejb.converter-ejb.svc --name server-ejb
 ```
-Add the following in the YAML file of the Deployments server-ejb file
+Add the following in the YAML file of the Deployments server-ejb file below the **spec:** node
 ```
     hostAliases:
      - ip: 0.0.0.0
