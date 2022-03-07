@@ -11,6 +11,7 @@ I also added a pom.xml in the parent directory modernize-liberty
     <module>TempEJB</module>
     <module>TempEAR</module>
     <module>ConverterService</module>
+    <module>ConverterAnnotationClient</module>
  </modules>
 ```
 
@@ -29,9 +30,13 @@ mvn liberty:run
 
 cd ConverterService
 mvn liberty:run
+
+This is optional
+cd ConverterAnnotationService
+mvn liberty:run
 ```
 
-This will start 2 liberty servers named **ejbServer** and **ejbclient** 
+This will start 3 liberty servers named **ejbServer** and **ejbclient** the **ejbAnnotationClient** is optional 
 We added 2 variables on the server.xml file of the **ejbServer** define in the server.env file
 ```
 ejb_server_hostname=localhost
@@ -399,9 +404,9 @@ docker push quay.io/remi_cauchon_ibm/ejb-server:v1.0
 Loogin to your account on quay.io make your images repositories public
  
 Go to your ROKS console and add the project or do it with the command line
- ```
+```
  oc new-project --display-name="Test Converter EJB remote calling ejb server" converter-ejb
- ```
+```
 
 Deploy the ejb-server image with OCP console
 
