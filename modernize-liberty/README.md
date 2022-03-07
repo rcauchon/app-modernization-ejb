@@ -32,7 +32,7 @@ mvn liberty:run
 ```
 
 This will start 2 liberty servers named **ejbServer** and **ejbclient** 
-We added 2 variables on the server.xml file of the ejbServer define in the server.env file
+We added 2 variables on the server.xml file of the **ejbServer** define in the server.env file
 ```
 ejb_server_hostname=localhost
 ejb_server_iiop_port=22809
@@ -46,14 +46,14 @@ used in the server.xml
 
 ```
 
-We added 4 variables on the server.xml file of the ejbClient define in the server.env file
+We added 4 variables on the server.xml file of the **ejbClient** define in the server.env file
 ```
 ejb_server_hostname=localhost
 ejb_server_iiop_port=22809
 ejb_server_remote_path=TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean
 ejb_server_remote_bean=com.ibm.temp.ejb.ConverterRemote
 ```
-used in the JSONController.java code from the project ConverterService
+used in the JSONController.java code from the project **ConverterService**
 ```
 		try {
 
