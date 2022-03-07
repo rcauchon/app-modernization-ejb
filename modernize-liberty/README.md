@@ -14,7 +14,7 @@ I also added a pom.xml in the parent directory modernize-liberty
  </modules>
 ```
 
-To compile the project you can run `make clean install` from the parent directory
+To compile the project you can run `mvn clean install` from the parent directory
 
 Prerequisite are Maven, JAVA 1.8 jdk and liberty install on you computer in some of the pom.xml there is an hardcoded path for liberty 
 ```
