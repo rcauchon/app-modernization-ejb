@@ -13,4 +13,8 @@
 
 	<mvc:annotation-driven />
 
+    <bean id="testRemoteEJB"  class="com.ibm.common.access.MySimpleRemoteStatelessSessionProxyFactoryBean">
+    	<property name="jndiName" value="corbaname::localhost:22809#ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote"/>
+    	<property name="businessInterface" value="com.ibm.temp.ejb.ConverterRemote"/>
+    </bean>
 </beans>
