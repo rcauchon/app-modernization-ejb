@@ -1,11 +1,5 @@
 package com.ibm.common.controller;
 
-import javax.interceptor.Interceptors;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,19 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ibm.common.access.MySimpleRemoteStatelessSessionProxyFactoryBean;
 import com.ibm.common.model.ConvertType;
 import com.ibm.common.model.Temperature;
 import com.ibm.temp.ejb.ConverterRemote;
 
 @Controller
 @RequestMapping("/converter")
-@Interceptors(MySimpleRemoteStatelessSessionProxyFactoryBean.class)
 public class JSONController {
 
 	@Autowired
 	ConverterRemote remote;
-
 
 	@CrossOrigin
 	@RequestMapping(value="/CtoF/{degree}", method = RequestMethod.GET)
