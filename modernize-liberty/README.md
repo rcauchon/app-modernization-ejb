@@ -198,7 +198,7 @@ docker network create ejb-network
 ```
 
 ```
-docker network ejb-netwrok inspect
+docker network ejb-network inspect
 ```
 
 This is your network before you start the EJB server and EJB client application
