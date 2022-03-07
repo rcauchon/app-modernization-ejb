@@ -1,0 +1,8 @@
+/build/
+/target/
+*.log
+/.apt_generated/
+.classpath
+.project
+.factorypath
+/.settings/

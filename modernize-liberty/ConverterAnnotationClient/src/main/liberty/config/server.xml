@@ -9,7 +9,7 @@
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
-    <httpEndpoint httpPort="9085" httpsPort="9445" id="defaultHttpEndpoint"/>
+    <httpEndpoint httpPort="9086" httpsPort="9446" id="defaultHttpEndpoint"/>
         
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
@@ -22,7 +22,7 @@
         <!-- <user name="yourUserName" password="" />  --> 
     </basicRegistry>
     
-    <iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="22811">
+    <iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="22812">
 		<!-- the following option has to be removed to allow remote ejb calls without ssl 
 			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
 	</iiopEndpoint>
@@ -41,5 +41,5 @@
 		</layers> 
      </clientPolicy.csiv2>
 	</orb>
-    <webApplication id="ConverterService" location="ConverterService.war" name="ConverterService"/>
+    <webApplication id="ConverterAnnotationClient" location="ConverterAnnotationClient.war" name="ConverterAnnotationClient"/>
 </server>

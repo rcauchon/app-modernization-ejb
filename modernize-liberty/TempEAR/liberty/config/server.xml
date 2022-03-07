@@ -27,7 +27,7 @@
 			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
 	</iiopEndpoint>
 	
-	<orb id="defaultOrb" iiopEndpointRef="defaultIiopEndpoint" nameService="corbaname::myhost:22809">
+	<orb id="defaultOrb" iiopEndpointRef="defaultIiopEndpoint" nameService="corbaname::${ejb_server_hostname}:${ejb_server_iiop_port}">
 		<serverPolicy.csiv2>
 			<layers>
 				<authenticationLayer establishTrustInClient="Supported">
