@@ -10,7 +10,7 @@
 	<properties>
 		<spring.version>4.2.2.RELEASE</spring.version>
 		<jackson.version>1.9.10</jackson.version>
-		<jdk.version>1.6</jdk.version>
+		<jdk.version>1.8</jdk.version>
 	</properties>
 
     <!--The identifier of the parent POM-->
@@ -109,7 +109,7 @@
 	          <version>3.3.4</version>
 	          <!-- Specify configuration, executions for liberty-maven-plugin -->
 	          <configuration>
-	              <installDirectory>/dev/wlp2021</installDirectory>
+	              <installDirectory>/Users/davidvandepol/IBM/wlp2021.0.0.9/</installDirectory>
 	              <serverName>ejbAnnotationClient</serverName>
 	          </configuration>
 	          <executions>

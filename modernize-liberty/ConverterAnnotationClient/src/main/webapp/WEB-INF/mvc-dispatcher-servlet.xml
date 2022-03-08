@@ -13,4 +13,10 @@
 
 	<mvc:annotation-driven />
 
+        <bean id="remote"  class="com.ibm.ejb.access.MySimpleRemoteStatelessSessionProxyFactoryBean">
+                <property name="jndiName" value="jndi/remote"/>
+                <property name="businessInterface" value="com.ibm.temp.ejb.ConverterRemote"/>
+        </bean>
+
+
 </beans>
