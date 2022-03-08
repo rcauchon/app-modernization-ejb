@@ -1,12 +1,5 @@
 package com.ibm.common.controller;
 
-import java.rmi.RemoteException;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,20 +15,18 @@ import com.ibm.temp.ejb.ConverterRemote;
 @Controller
 @RequestMapping("/converter")
 public class JSONController {
-	
+
+
 	@Autowired
 	ConverterRemote remote;
 
-
-	
 
 	@CrossOrigin
 	@RequestMapping(value="/CtoF/{degree}", method = RequestMethod.GET)
 	public @ResponseBody Temperature getTempCtoF(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.CtoF);
-
-		
+				
 		if (remote != null) {
 		
 			double deg = remote.celsiusToFar(degree);
@@ -51,7 +42,6 @@ public class JSONController {
 	public @ResponseBody Temperature getTempCtoK(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.CtoK);
-
 		
 		if (remote != null) {
 		
@@ -69,7 +59,7 @@ public class JSONController {
 	public @ResponseBody Temperature getTempFtoC(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.FtoC);
-		
+	
 		if (remote != null) {
 		
 			double deg = remote.farenheitToCel(degree);
@@ -86,7 +76,7 @@ public class JSONController {
 	public @ResponseBody Temperature getTempFtoK(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.FtoK);
-		
+				
 		if (remote != null) {
 		
 			double deg = remote.farenheitToKelvin(degree);
@@ -103,7 +93,7 @@ public class JSONController {
 	public @ResponseBody Temperature getTempKtoC(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.KtoC);
-		
+			
 		if (remote != null) {
 		
 			double deg = remote.kelvinToCel(degree);
@@ -120,7 +110,7 @@ public class JSONController {
 	public @ResponseBody Temperature getTempInJSON(@PathVariable double degree) throws RemoteException {
 
 		Temperature temp = new Temperature(ConvertType.KtoF);
-		
+			
 		if (remote != null) {
 		
 			double deg = remote.farenheitToCel(degree);
