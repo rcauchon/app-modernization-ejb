@@ -7,14 +7,11 @@ import javax.rmi.PortableRemoteObject;
 
 import org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean;
 
-//import com.ibm.temp.ejb.ConverterRemote;
-
 public class MySimpleRemoteStatelessSessionProxyFactoryBean extends SimpleRemoteStatelessSessionProxyFactoryBean {
 
 	@Override
 	protected Object create() throws NamingException, InvocationTargetException {
-		System.out.println("MySimpleRemote: create()"); 
-		
+		System.out.println("MySimpleRemote: create()"); 	
 		
 		//String remoteURL = "corbaname::localhost:22809#ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote";
 		Object homeObject = this.lookup();
