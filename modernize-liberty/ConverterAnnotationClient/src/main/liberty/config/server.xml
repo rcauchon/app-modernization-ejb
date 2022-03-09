@@ -21,6 +21,11 @@
     <basicRegistry id="basic" realm="BasicRealm"> 
         <!-- <user name="yourUserName" password="" />  --> 
     </basicRegistry>
+
+     <iiopEndpoint host="${ejb_server_hostname}" id="defaultIiopEndpoint" iiopPort="22812">
+		<!-- the following option has to be removed to allow remote ejb calls without ssl 
+			<iiopsOptions iiopsPort="22810" sslRef="mySSLConfiguration" suppressHandshakeErrors="false"/> -->
+	</iiopEndpoint>
     
     <orb id="defaultOrb">
     <serverPolicy.csiv2> 
@@ -37,12 +42,9 @@
      </clientPolicy.csiv2>
 	</orb>
     
-    <jndiEntry value="corbaname::localhost:22809#ejb/global/TempEAR-0.0.1/com.ibm.temp-TempEJB-0.0.1/ConverterBean!com.ibm.temp.ejb.ConverterRemote" jndiName="jndi/remote" id="remote"></jndiEntry>
-
+    <jndiEntry value="corbaname::${ejb_server_hostname}:${ejb_server_iiop_port}#ejb/global/${ejb_server_remote_path}!${ejb_server_remote_bean}" 
+     jndiName="jndi/remote"></jndiEntry>
     
-    <webApplication id="ConverterAnnotationClient" location="/Users/davidvandepol/git/app-modernization-ejb/modernize-liberty/ConverterAnnotationClient/target/ConverterAnnotationClient.war" name="ConverterAnnotationClient"/>
-
-
-
+    <webApplication id="ConverterAnnotationClient" location="ConverterAnnotationClient.war" name="ConverterAnnotationClient"/>
 
 </server>
