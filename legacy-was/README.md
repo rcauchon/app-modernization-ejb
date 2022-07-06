@@ -64,7 +64,9 @@ public class TestServlet extends HttpServlet {
     ConverterLocal local;
      ...
 ```
-
+```
+http://localhost:9080/TestConverterWeb/index.jsp
+```
  ![app-modernization-ejb](../images/Old-Frontend-converter.PNG)
  
  
