@@ -1,6 +1,12 @@
 # legacy-was
 Directory which contains all the legacy java code to run on Websphere Application Server v8.5.5 on java 1.6
 
+To run the transformation Advisor on this websphere configuration
+```
+.\bin\transformationadvisor.bat -w C:\dev\IBM\WebSphere\AppServer -p AppSrv01
+```
+
+
 # For this we have old eclipse project in a workspace
 * TempEAR
 * TempEJB
